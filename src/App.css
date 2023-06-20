@@ -1,7 +1,7 @@
 .box{
   border: 1px solid black;
   border-radius: 5px;
-  max-width: 500px;
+  max-width: 600px;
   margin: 10px;
 }
 input{
@@ -31,6 +31,7 @@ h1{
 h3 {
   margin: 0px;
   padding: 0px 10px;
+  /* text-transform: capitalize; */
 }
 .weather{
   display: flex;
@@ -38,6 +39,7 @@ h3 {
 ul {
   list-style: none;
   margin: 5px 70px;
+  padding: 15px 0px;
 }
 .forecast{
   display: flex;
@@ -45,4 +47,15 @@ ul {
 }
 .weather-forecast{
   margin: 10px 30px;
+}
+.unit{
+  font-size: 15px;
+}
+.temp {
+  margin: 0px;
+  padding: 0px 0px;
+  font-size: 60px;
+}
+.img{
+  padding:20px 0px;
 }
