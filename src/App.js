@@ -16,7 +16,6 @@ function App() {
   let [wind, setwind] = useState(4);
   let [description, setdescription] = useState("Cloudy");
   let [icon, seticon] = useState("10d");
-  // let [ico, setico] = useState();
   
   function getTemperature(response){
     setemp(Math.round(response.data.main.temp));
@@ -24,30 +23,8 @@ function App() {
     setwind(Math.round(response.data.wind.speed));
     setdescription(response.data.weather[0].description);
     seticon(`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+    console.log(response.data)
     
-    // setico(response.data.weather[0].icon)
-    // iconMatching = {
-    //   "01d": "CLEAR_DAY",
-    //   "01n": "CLEAR_NIGHT",
-    //   "02d": "PARTLY_CLOUDY_DAY",
-    //   "02n": "PARTLY_CLOUDY_NIGHT",
-    //   "03d": "CLOUDY",
-    //   "03n": "CLOUDY",
-    //   "04d": "CLOUDY",
-    //   "04n": "CLOUDY",
-    //   "09d": "RAIN",
-    //   "09n": "RAIN",
-    //   "10d": "RAIN",
-    //   "10n": "RAIN",
-    //   "11d": "SLEET",
-    //   "11n": "SLEET",
-    //   "13d": "SNOW",
-    //   "13n": "SNOW",
-    //   "50d": "FOG",
-    //   "50n": "FOG"
-    // };
-    // ico(this.iconMatching.setico)
-    // console.log(ico)
   }
   function UpdateCity(event){
     event.preventDefault();
@@ -66,6 +43,9 @@ function App() {
     let apikey = "36459a8242aec3971626f0447d4eb713";
     let url = `https://api.openweathermap.org/data/2.5/weather?q=Karimnagar&appid=${apikey}&units=metric`;
     axios.get(url).then(getTemperature);
+    let name = document.querySelector(".City");
+    // console.log(response.data)
+    name.innerHTML = "Karimnagar"
 
   }
 
@@ -78,6 +58,7 @@ function App() {
           <button className="btn2" onClick={showcurrent}>Current</button>
         </form>
         <div>
+          <h1 className="City"></h1>
           <h1>{city}</h1>
           <h3>{days[day]} <span>{hour}:{minutes} minutes</span></h3>
           <h3>{description}</h3>
@@ -106,45 +87,45 @@ function App() {
             <p>Thu</p>
             <img />
             <ReactAnimatedWeather
-              icon="PARTLY_CLOUDY_NIGHT"
+              icon="WIND"
               color="black"
               size={50}
               animate={true}
             />
-            <p>13°</p>
+            <p>18°</p>
           </div>
           <div className="weather-forecast">
             <p>Fri</p>
             <img />
             <ReactAnimatedWeather
-              icon="PARTLY_CLOUDY_NIGHT"
+              icon="WIND"
               color="black"
               size={50}
               animate={true}
             />
-            <p>13°</p>
+            <p>15°</p>
           </div>
           <div className="weather-forecast">
             <p>Sat</p>
             <img />
             <ReactAnimatedWeather
-              icon="PARTLY_CLOUDY_NIGHT"
+              icon="CLOUDY"
               color="black"
               size={50}
               animate={true}
             />
-            <p>13°</p>
+            <p>15°</p>
           </div>
           <div className="weather-forecast">
             <p>Sun</p>
             <img />
             <ReactAnimatedWeather
-              icon="PARTLY_CLOUDY_NIGHT"
+              icon="CLEAR_DAY"
               color="black"
               size={50}
               animate={true}
             />
-            <p>13°</p>
+            <p>23°</p>
           </div>
         </div>
       </div>
